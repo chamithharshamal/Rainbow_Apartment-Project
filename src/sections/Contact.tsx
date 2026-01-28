@@ -27,7 +27,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-navy py-24 lg:py-32">
+    <section id="contact" className="bg-cream py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Form */}
@@ -40,10 +40,10 @@ export default function Contact() {
             <span className="text-gold text-sm font-medium tracking-widest uppercase">
               Contact Us
             </span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-navy mt-4 mb-6">
               Begin Your Journey Home
             </h2>
-            <p className="text-white/70 leading-relaxed mb-8">
+            <p className="text-charcoal/70 leading-relaxed mb-8">
               Schedule a visit to experience Rainbow Apartments in person. Our
               team is ready to assist you in finding your perfect home.
             </p>
@@ -51,7 +51,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-white/80">
+                  <Label htmlFor="name" className="text-navy">
                     Full Name
                   </Label>
                   <Input
@@ -63,11 +63,11 @@ export default function Contact() {
                       setFormData({ ...formData, name: e.target.value })
                     }
                     required
-                    className="bg-white/5 border-white/20 text-white placeholder:text-white/40 focus:border-gold focus:ring-gold"
+                    className="bg-white border-navy/10 text-navy placeholder:text-navy/40 focus:border-gold focus:ring-gold"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-white/80">
+                  <Label htmlFor="email" className="text-navy">
                     Email Address
                   </Label>
                   <Input
@@ -79,13 +79,13 @@ export default function Contact() {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     required
-                    className="bg-white/5 border-white/20 text-white placeholder:text-white/40 focus:border-gold focus:ring-gold"
+                    className="bg-white border-navy/10 text-navy placeholder:text-navy/40 focus:border-gold focus:ring-gold"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="phone" className="text-white/80">
+                <Label htmlFor="phone" className="text-navy">
                   Phone Number
                 </Label>
                 <Input
@@ -97,12 +97,12 @@ export default function Contact() {
                     setFormData({ ...formData, phone: e.target.value })
                   }
                   required
-                  className="bg-white/5 border-white/20 text-white placeholder:text-white/40 focus:border-gold focus:ring-gold"
+                  className="bg-white border-navy/10 text-navy placeholder:text-navy/40 focus:border-gold focus:ring-gold"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message" className="text-white/80">
+                <Label htmlFor="message" className="text-navy">
                   Message
                 </Label>
                 <Textarea
@@ -113,7 +113,7 @@ export default function Contact() {
                     setFormData({ ...formData, message: e.target.value })
                   }
                   rows={4}
-                  className="bg-white/5 border-white/20 text-white placeholder:text-white/40 focus:border-gold focus:ring-gold resize-none"
+                  className="bg-white border-navy/10 text-navy placeholder:text-navy/40 focus:border-gold focus:ring-gold resize-none"
                 />
               </div>
 
@@ -134,21 +134,21 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:pl-12"
           >
-            <div className="bg-white/5 p-8 lg:p-12 h-full">
-              <h3 className="font-serif text-2xl font-bold text-white mb-8">
+            <div className="bg-white p-8 lg:p-12 h-full border border-navy/5 shadow-lg">
+              <h3 className="font-serif text-2xl font-bold text-navy mb-8">
                 Get in Touch
               </h3>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gold/20 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gold/10 flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <h4 className="text-white font-medium mb-1">Phone</h4>
+                    <h4 className="text-navy font-medium mb-1">Phone</h4>
                     <a
                       href="tel:+94707074470"
-                      className="text-white/70 hover:text-gold transition-colors"
+                      className="text-charcoal/70 hover:text-gold transition-colors"
                     >
                       +94 70 707 4470
                     </a>
@@ -156,14 +156,14 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gold/20 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gold/10 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <h4 className="text-white font-medium mb-1">Email</h4>
+                    <h4 className="text-navy font-medium mb-1">Email</h4>
                     <a
                       href="mailto:info@rainbowapartments.lk"
-                      className="text-white/70 hover:text-gold transition-colors"
+                      className="text-charcoal/70 hover:text-gold transition-colors"
                     >
                       info@rainbowapartments.lk
                     </a>
@@ -171,12 +171,12 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gold/20 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gold/10 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <h4 className="text-white font-medium mb-1">Address</h4>
-                    <p className="text-white/70">
+                    <h4 className="text-navy font-medium mb-1">Address</h4>
+                    <p className="text-charcoal/70">
                       Rathmalana, Sri Lanka
                       <br />
                       Near Bolgoda Lake
@@ -185,15 +185,15 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="mt-10 pt-10 border-t border-white/10">
-                <h4 className="text-white font-medium mb-4">
+              <div className="mt-10 pt-10 border-t border-navy/10">
+                <h4 className="text-navy font-medium mb-4">
                   Prefer WhatsApp?
                 </h4>
                 <a
                   href="https://wa.me/94707074470"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-6 py-4 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors animate-pulse-gold"
+                  className="inline-flex items-center gap-3 px-6 py-4 bg-green-600 text-white font-medium hover:bg-green-700 transition-colors animate-pulse-gold w-full justify-center rounded-md"
                 >
                   <MessageCircle className="w-5 h-5" />
                   Chat on WhatsApp

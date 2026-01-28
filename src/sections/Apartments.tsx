@@ -76,53 +76,53 @@ export default function Apartments() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group bg-white shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2"
+              className="group bg-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-transparent rounded-3xl overflow-hidden"
             >
               {/* Image */}
-              <div className="relative overflow-hidden img-zoom">
+              <div className="relative overflow-hidden img-zoom h-64">
                 <img
                   src={apt.image}
                   alt={apt.name}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute top-4 left-4 bg-gold text-navy px-3 py-1 text-sm font-medium">
+                <div className="absolute top-4 left-4 bg-gold text-navy px-4 py-1.5 text-sm font-bold rounded-full">
                   {apt.name}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-8">
                 {/* Size */}
-                <div className="flex items-baseline gap-1 mb-4">
-                  <span className="font-serif text-3xl font-bold text-navy">
+                <div className="flex items-baseline gap-2 mb-6">
+                  <span className="font-serif text-3xl font-bold text-navy group-hover:text-gold transition-colors">
                     {apt.size}
                   </span>
                   <span className="text-charcoal/60 text-sm">{apt.unit}</span>
                 </div>
 
                 {/* Features */}
-                <div className="flex items-center gap-4 mb-4 text-sm text-charcoal/70">
-                  <div className="flex items-center gap-1">
-                    <Bed className="w-4 h-4 text-gold" />
+                <div className="flex items-center gap-6 mb-6 text-sm text-charcoal/80">
+                  <div className="flex items-center gap-2">
+                    <Bed className="w-5 h-5 text-gold" />
                     <span>{apt.bedrooms} Beds</span>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Bath className="w-4 h-4 text-gold" />
+                  <div className="flex items-center gap-2">
+                    <Bath className="w-5 h-5 text-gold" />
                     <span>{apt.bathrooms} Baths</span>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-charcoal/70 text-sm leading-relaxed mb-4">
+                <p className="text-charcoal/70 text-sm leading-relaxed mb-6">
                   {apt.description}
                 </p>
 
                 {/* Features tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {apt.features.map((feature) => (
                     <span
                       key={feature}
-                      className="px-3 py-1 bg-cream text-charcoal/70 text-xs"
+                      className="px-3 py-1 bg-cream text-charcoal/70 text-xs border border-transparent rounded-md"
                     >
                       {feature}
                     </span>
@@ -134,7 +134,7 @@ export default function Apartments() {
                   href="#contact"
                   className="inline-flex items-center gap-2 text-navy font-medium group/link"
                 >
-                  <span className="border-b border-transparent group-hover/link:border-gold transition-colors">
+                  <span className="border-b border-gold/50 group-hover/link:border-gold transition-colors pb-0.5">
                     Inquire Now
                   </span>
                   <ArrowRight className="w-4 h-4 text-gold group-hover/link:translate-x-1 transition-transform" />

@@ -74,21 +74,31 @@ const FloorCard = ({ floor, index }: { floor: typeof floors[0], index: number })
     const isEven = index % 2 === 0;
 
     return (
-        <div className="min-h-screen flex items-center justify-center py-20 sticky top-0 bg-white border-t border-gray-100">
-            <div className="container mx-auto px-6">
+        <div className="relative min-h-[70vh] flex items-center justify-center py-12 sticky top-0 bg-cream border-t border-navy/5 overflow-hidden">
+            {/* Mobile Background Image with Overlay */}
+            <div className="absolute inset-0 z-0 lg:hidden">
+                <img
+                    src={floor.image}
+                    alt={floor.title}
+                    className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-cream/95"></div>
+            </div>
+
+            <div className="container mx-auto px-6 relative z-10">
                 <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-15`}>
 
                     {/* Text Content */}
-                    <div className="lg:w-1/2 mb-10 ml-10">
+                    <div className="lg:w-1/2 mb-10 lg:mb-0 lg:ml-10">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
-                            className="flex flex-col justify-center lg:justify-start lg:pt-24 h-full"
+                            className="flex flex-col justify-center lg:justify-start lg:pt-12 h-full"
                         >
                             <div className="flex items-center gap-4 mb-6">
-                                <span className="text-gold border border-gold rounded-full p-3">
+                                <span className="text-gold border border-gold rounded-full p-3 bg-navy/5 backdrop-blur-sm">
                                     {floor.icon}
                                 </span>
                                 <span className="text-navy/60 uppercase tracking-widest text-sm font-medium">{floor.subtitle}</span>
@@ -120,14 +130,14 @@ const FloorCard = ({ floor, index }: { floor: typeof floors[0], index: number })
                         </motion.div>
                     </div>
 
-                    {/* Image */}
-                    <div className="lg:w-[40%] w-full">
+                    {/* Desktop Image */}
+                    <div className="hidden lg:block lg:w-[40%] w-full">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
-                            className="relative aspect-[3/4] overflow-hidden rounded-sm shadow-xl"
+                            className="relative aspect-[3/4] overflow-hidden rounded-sm shadow-xl border border-navy/5"
                         >
                             <img
                                 src={floor.image}
@@ -155,9 +165,9 @@ export default function FloorGuide() {
     const isInView = useInView(ref, { once: true, margin: '-100px' });
 
     return (
-        <section id="floors" className="bg-white relative">
+        <section id="floors" className="bg-cream relative">
             {/* Header */}
-            <div className="bg-white pt-24 pb-10 relative z-10">
+            <div className="bg-cream pt-24 pb-10 relative z-10">
                 <motion.div
                     ref={ref}
                     initial={{ opacity: 0, y: 30 }}
