@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";

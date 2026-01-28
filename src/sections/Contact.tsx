@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, MessageCircle } from 'lucide-react';

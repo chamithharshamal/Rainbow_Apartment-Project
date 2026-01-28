@@ -1,7 +1,13 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import animate from "tailwindcss-animate";
+
+export default {
   darkMode: ["class"],
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
     extend: {
       colors: {
@@ -66,8 +72,8 @@ module.exports = {
         charcoal: '#2d2d2d',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
-        sans: ['Inter', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'serif'],
+        sans: ['var(--font-inter)', 'sans-serif'],
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
@@ -122,5 +128,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [/* animate */],
 }
