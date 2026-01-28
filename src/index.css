@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 18%;
+    --primary: 220 43% 18%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 20% 96%;
+    --secondary-foreground: 220 43% 18%;
+    --muted: 40 20% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 46 65% 52%;
+    --accent-foreground: 220 43% 18%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 46 65% 52%;
+    --radius: 0rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a2744;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3a5a;
+}
+
+/* Animation utilities */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* Image hover effect */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.4s ease;
+}
+
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
