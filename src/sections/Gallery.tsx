@@ -35,7 +35,7 @@ export default function Gallery() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="gallery" className="bg-white py-24 lg:py-32">
+    <section id="gallery" className="bg-cream py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

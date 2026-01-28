@@ -172,39 +172,43 @@ function AmenityCard({ amenity }: { amenity: Amenity }) {
 
     return (
         <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="group relative h-full bg-navy border border-white/10 p-6 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:border-gold/50 rounded-sm"
+            whileHover={{ scale: 1.02, y: -4 }}
+            className="group relative h-full bg-white border-2 border-navy/5 p-6 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:border-gold hover:shadow-xl rounded-sm"
         >
-            {/* Background gradient on hover */}
-            <div className={`absolute inset-0 ${amenity.image ? 'bg-gradient-to-b from-navy/20 via-navy/60 to-navy/90' : 'bg-gradient-to-br from-gold/10 to-transparent'} opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10`} />
-
             {/* Background Image if available */}
             {amenity.image && (
                 <div className="absolute inset-0 z-0">
                     <img
                         src={amenity.image}
                         alt={amenity.name}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-navy/60 group-hover:bg-navy/30 transition-colors duration-300" />
+                    {/* Light overlay for better text readability - much lighter than before */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/80 group-hover:from-navy/60 group-hover:via-navy/40 group-hover:to-navy/70 transition-colors duration-300" />
                 </div>
             )}
 
+            {/* Decorative gold accent line on top */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-30" />
+
             {/* Corner accent */}
-            <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-gold/20 group-hover:border-gold/40 transition-colors z-20 rounded-tr-sm" />
+            <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-gold/0 group-hover:border-gold/60 transition-colors z-20 rounded-tr-sm" />
 
             <div className="relative z-20">
-                <div className="w-12 h-12 bg-gold/10 rounded-sm flex items-center justify-center mb-4 group-hover:bg-gold/20 transition-colors">
-                    <Icon className="w-6 h-6 text-gold" />
+                <div className="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center mb-4 group-hover:bg-gold/20 border border-white/20 group-hover:border-gold/40 transition-all shadow-lg">
+                    <Icon className="w-7 h-7 text-gold drop-shadow-md" />
                 </div>
-                <h3 className="font-serif text-xl text-white mb-2 leading-tight">{amenity.name}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{amenity.description}</p>
+                <h3 className="font-serif text-xl md:text-2xl text-white mb-2 leading-tight font-bold drop-shadow-lg">{amenity.name}</h3>
+                <p className="text-white/90 text-sm leading-relaxed drop-shadow-md">{amenity.description}</p>
             </div>
 
             {/* Decorative line */}
             <div className="relative z-20 mt-4">
-                <div className="w-12 h-px bg-gold/30 group-hover:w-full group-hover:bg-gold/50 transition-all duration-500" />
+                <div className="w-12 h-0.5 bg-gold/50 group-hover:w-full group-hover:bg-gold transition-all duration-500" />
             </div>
+
+            {/* Hover glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-gold/0 via-gold/0 to-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
         </motion.div>
     );
 }
@@ -243,17 +247,17 @@ export default function Rooftop() {
     };
 
     return (
-        <section id="rooftop" className="bg-navy-dark py-24 lg:py-32 overflow-hidden">
+        <section id="rooftop" className="bg-white py-24 lg:py-32 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <ScrollReveal>
                     <div className="text-center mb-12 lg:mb-16">
                         <span className="text-gold text-sm font-semibold tracking-widest uppercase mb-4 block">
                             Rooftop Lifestyle
                         </span>
-                        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-6">
+                        <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-navy mb-6">
                             Elevate Your <span className="text-gold">Everyday</span>
                         </h2>
-                        <p className="text-white/60 max-w-2xl mx-auto text-lg leading-relaxed">
+                        <p className="text-charcoal/70 max-w-2xl mx-auto text-lg leading-relaxed">
                             A curated collection of rooftop amenities designed to enhance your lifestyle, leisure, and well-being.
                         </p>
                     </div>
@@ -287,9 +291,9 @@ export default function Rooftop() {
                             <button
                                 onClick={() => scroll("left")}
                                 disabled={!canScrollLeft}
-                                className={`p-2 rounded-full border transition-colors ${canScrollLeft
-                                    ? "border-gold text-gold hover:bg-gold hover:text-navy"
-                                    : "border-white/10 text-white/30 cursor-not-allowed"
+                                className={`p-2 rounded-full border-2 transition-colors ${canScrollLeft
+                                    ? "border-gold text-gold hover:bg-gold hover:text-white"
+                                    : "border-charcoal/20 text-charcoal/30 cursor-not-allowed"
                                     }`}
                             >
                                 <ChevronLeft className="w-5 h-5" />
@@ -297,9 +301,9 @@ export default function Rooftop() {
                             <button
                                 onClick={() => scroll("right")}
                                 disabled={!canScrollRight}
-                                className={`p-2 rounded-full border transition-colors ${canScrollRight
-                                    ? "border-gold text-gold hover:bg-gold hover:text-navy"
-                                    : "border-white/10 text-white/30 cursor-not-allowed"
+                                className={`p-2 rounded-full border-2 transition-colors ${canScrollRight
+                                    ? "border-gold text-gold hover:bg-gold hover:text-white"
+                                    : "border-charcoal/20 text-charcoal/30 cursor-not-allowed"
                                     }`}
                             >
                                 <ChevronRight className="w-5 h-5" />
@@ -308,7 +312,7 @@ export default function Rooftop() {
                     </div>
                 ) : (
                     /* Desktop Bento Grid */
-                    <StaggerContainer className="grid grid-cols-1 md:grid-cols-4 auto-rows-[250px] gap-4">
+                    <StaggerContainer className="grid grid-cols-1 md:grid-cols-4 auto-rows-[200px] gap-4">
                         {amenities.map((amenity) => (
                             <StaggerItem key={amenity.id} className={sizeClasses[amenity.size]}>
                                 <AmenityCard amenity={amenity} />
